@@ -1,4 +1,6 @@
 # Albums
+## Note: 
+If you want to add any album, just add it in the folowing syntax:**\<ALBUM_NAME\>: \<ARTIST\>** and run `organizer_albyms.py`
 
 ### A
  - **Abbey Road**: The Beatles
@@ -87,7 +89,7 @@
  - **Synchronicity**: The Police
 ### T
  - **Take Care**: Drake
- - **Talking Book **: Stevie Wonder
+ - **Talking Book**: Stevie Wonder
  - **Ten**: Pearl Jam
  - **The Band**: The Band
  - **The Black Album**: Jay-Z

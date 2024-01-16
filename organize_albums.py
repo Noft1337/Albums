@@ -8,13 +8,11 @@ ALBUM_STARTER = ' - '
 UNDEF_SYMBOL = '~'
 
 
-def remove_chars(phrase: str, *chars, end=False) -> str:
-    if not end:
-        while phrase.startswith(chars):
-            phrase = phrase[1:]
-    else:
-        while phrase.endswith(chars):
-            phrase = phrase[:-1]
+def remove_tail_chars(phrase: str, *chars) -> str:
+    while phrase.startswith(chars):
+        phrase = phrase[1:]
+    while phrase.endswith(chars):
+        phrase = phrase[:-1]
 
     return phrase
 
@@ -24,8 +22,7 @@ def split_line(line: str, reverse=False) -> list:
     if reverse:
         line = line[::-1]
 
-    line = [remove_chars(i, ' ') for i in line]
-    line = [remove_chars(i, '\n', end=True) for i in line]
+    line = [remove_tail_chars(i, ' ', '\n') for i in line]
 
     return line
 
@@ -152,7 +149,12 @@ def write_lines_to_file(f, lines):
 
 
 def main():
-    final = '# Albums\n\n'
+    final = "# Albums\n" \
+            "## Note: \n" \
+            "If you want to add any album, " \
+            "just add it in the folowing syntax:" \
+            "**\\<ALBUM_NAME\\>: \\<ARTIST\\>** " \
+            "and run `organize_albums.py`\n\n"
 
     with open(FILE, 'r') as file:
         lines = file.readlines()
